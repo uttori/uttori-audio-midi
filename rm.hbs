@@ -1,0 +1,68 @@
+[![view on npm](https://img.shields.io/npm/v/@uttori/audio-midi.svg)](https://www.npmjs.com/package/@uttori/audio-midi)
+[![npm module downloads](https://img.shields.io/npm/dt/@uttori/audio-midi.svg)](https://www.npmjs.com/package/@uttori/audio-midi)
+[![Build Status](https://travis-ci.com/uttori/uttori-audio-midi.svg?branch=master)](https://travis-ci.com/uttori/uttori-audio-midi)
+[![Dependency Status](https://david-dm.org/uttori/uttori-audio-midi.svg)](https://david-dm.org/uttori/uttori-audio-midi)
+[![Coverage Status](https://coveralls.io/repos/github/uttori/uttori-audio-midi/badge.svg?branch=master)](https://coveralls.io/github/uttori/uttori-audio-midi?branch=master)
+[![Tree-Shaking Support](https://badgen.net/bundlephobia/tree-shaking/@uttori/audio-midi)](https://bundlephobia.com/result?p=@uttori/audio-midi)
+[![Dependency Count](https://badgen.net/bundlephobia/dependency-count/@uttori/audio-midi)](https://bundlephobia.com/result?p=@uttori/audio-midi)
+[![Minified + GZip](https://badgen.net/bundlephobia/minzip/@uttori/audio-midi)](https://bundlephobia.com/result?p=@uttori/audio-midi)
+[![Minified](https://badgen.net/bundlephobia/min/@uttori/audio-midi)](https://bundlephobia.com/result?p=@uttori/audio-midi)
+
+# Uttori Audio MIDI
+
+A utility to manipulate and parse MIDI data.
+
+## Install
+
+```bash
+npm install --save @uttori/audio-midi
+```
+
+* * *
+
+# Example
+
+```js
+import fs from 'fs';
+import AudioMIDI from '@uttori/audio-midi';
+const data = fs.readFileSync('./song.mid');
+const midi = new AudioPadInfo(data);
+console.log('MIDI:', midi);
+```
+
+# API Reference
+
+{{>main}}
+
+* * *
+
+## Tests
+
+To run the test suite, first install the dependencies, then run `npm test`:
+
+```bash
+npm install
+npm test
+DEBUG=Uttori* npm test
+```
+
+## Contributors
+
+* [Matthew Callis](https://github.com/MatthewCallis)
+
+## References
+
+I found these links really helpful for understanding the MIDI format.
+
+- https://midi.org/midi-1-0-control-change-messages
+- https://midi.org/community/midi-specifications/yamaha-meta-events-in-midi-files
+- https://www.mixagesoftware.com/en/midikit/help/HTML/meta_events.html
+- https://web.archive.org/web/20140325195418/http://www.ta7.de/txt/musik/musi0006.htm#expand
+- https://www.lim.di.unimi.it/IEEE/MIDI/META.HTM
+- https://www.un4seen.com/forum/?topic=20355.msg142507#msg142507
+- https://www.music.mcgill.ca/~ich/classes/mumt306/StandardMIDIfileformat.html
+- http://www.jososoft.dk/yamaha/docs_specs.htm
+
+## License
+
+* [MIT](LICENSE)
