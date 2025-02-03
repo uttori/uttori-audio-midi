@@ -62,7 +62,7 @@ MIDI File Format Parser & Generator
         * [.writeVariableLengthValue(dataBuffer, value)](#AudioMIDI.writeVariableLengthValue)
         * [.writeEventData(dataBuffer, data)](#AudioMIDI.writeEventData)
         * [.generateTempoEvent(bpm)](#AudioMIDI.generateTempoEvent) ⇒ [<code>MidiTrackEvent</code>](#MidiTrackEvent)
-        * [.generateMetaStringEvent(metaType, data)](#AudioMIDI.generateMetaStringEvent) ⇒ <code>PlainTextEvent</code>
+        * [.generateMetaStringEvent(metaType, data)](#AudioMIDI.generateMetaStringEvent) ⇒ [<code>MidiTrackEvent</code>](#MidiTrackEvent)
         * [.generateEndOfTrackEvent()](#AudioMIDI.generateEndOfTrackEvent) ⇒ [<code>MidiTrackEvent</code>](#MidiTrackEvent)
         * [.convertToMidi(options)](#AudioMIDI.convertToMidi) ⇒ [<code>AudioMIDI</code>](#AudioMIDI)
         * [.noteToMidi(noteString, [octaveOffset], [noteMap])](#AudioMIDI.noteToMidi) ⇒ <code>number</code>
@@ -184,7 +184,7 @@ Helper function to write an event to the data buffer.
 | Param | Type | Description |
 | --- | --- | --- |
 | dataBuffer | <code>DataBuffer</code> | The data buffer to write to. |
-| event | <code>RawDataEvent</code> \| <code>PlainTextEvent</code> \| <code>NumericEvent</code> \| <code>NoteEvent</code> \| <code>SystemExclusiveManufactureEvent</code> | The event to write. |
+| event | [<code>MidiTrackEvent</code>](#MidiTrackEvent) | The event to write. |
 
 <a name="AudioMIDI+getUsedNotes"></a>
 
@@ -293,7 +293,7 @@ Generate a Set Tempo event with a provided BPM.
 
 <a name="AudioMIDI.generateMetaStringEvent"></a>
 
-### AudioMIDI.generateMetaStringEvent(metaType, data) ⇒ <code>PlainTextEvent</code>
+### AudioMIDI.generateMetaStringEvent(metaType, data) ⇒ [<code>MidiTrackEvent</code>](#MidiTrackEvent)
 Generate a Meta String event:
 - 0x01: 'Text Event'
 - 0x02: 'Copyright Notice'
@@ -306,7 +306,7 @@ Generate a Meta String event:
 - 0x09: 'Device (Port) Name'
 
 **Kind**: static method of [<code>AudioMIDI</code>](#AudioMIDI)  
-**Returns**: <code>PlainTextEvent</code> - The meta string event with the encoded string data.  
+**Returns**: [<code>MidiTrackEvent</code>](#MidiTrackEvent) - The meta string event with the encoded string data.  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -413,11 +413,11 @@ AudioMIDI.midiToNote(0) === 'C-2'
 **Kind**: global typedef  
 **Properties**
 
-| Name | Type |
-| --- | --- |
-| note | <code>string</code> | 
-| velocity | <code>number</code> | 
-| length | <code>number</code> | 
+| Name | Type | Description |
+| --- | --- | --- |
+| note | <code>string</code> | A note value. |
+| velocity | <code>number</code> | The velocity of the note (0-127). |
+| length | <code>number</code> | The length of the note in ticks. |
 
 <a name="SysExData"></a>
 
@@ -425,11 +425,11 @@ AudioMIDI.midiToNote(0) === 'C-2'
 **Kind**: global typedef  
 **Properties**
 
-| Name | Type |
-| --- | --- |
-| manufacturerId | <code>number</code> | 
-| manufacturerLabel | <code>string</code> | 
-| data | <code>Array.&lt;number&gt;</code> | 
+| Name | Type | Description |
+| --- | --- | --- |
+| manufacturerId | <code>number</code> | The manufacturer's ID code. |
+| manufacturerLabel | <code>string</code> | The manufacturer's label based on the ID. |
+| data | <code>Array.&lt;number&gt;</code> | The SysEx data bytes. |
 
 <a name="EventData"></a>
 
