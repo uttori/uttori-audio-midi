@@ -1,6 +1,6 @@
 {
   "name": "@uttori/audio-midi",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Utility to parse and manipulate MIDI files.",
   "author": "Matthew Callis <matthew.callis@gmail.com>",
   "contributors": [],
