@@ -367,6 +367,29 @@ Convert a collection of tracks and notes into a new AudioMIDI instance.
 | [options.tracks] | [<code>Array.&lt;WritableTrack&gt;</code>](#WritableTrack) | The MIDI tracks to write. |
 | [options.skipNotes] | <code>Array.&lt;number&gt;</code> | The MIDI notes to ship, if any. |
 
+**Example**  
+```js
+const midi = AudioMIDI.convertToMidi({
+  bpm,
+  ppq,
+  tracks: [
+    {
+      notes: myCustomNotes.map((note) => {
+        return {
+          note: note.midiNote,
+          velocity: note.velocity,
+          length: note.length,
+        }
+      }),
+      metaStringEvents: {
+        0x03: `Custom MIDI`,
+      },
+    }
+  ],
+  skipNotes: [128],
+});
+return midi;
+```
 <a name="AudioMIDI.noteToMidi"></a>
 
 ### AudioMIDI.noteToMidi(noteString, [octaveOffset], [noteMap]) ⇒ <code>number</code>

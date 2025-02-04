@@ -34,9 +34,9 @@
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@rollup/plugin-replace": "^6.0.2",
     "@types/debug": "^4.1.12",
-    "@types/node": "^22.13.0",
-    "@typescript-eslint/eslint-plugin": "^8.22.0",
-    "@typescript-eslint/parser": "^8.22.0",
+    "@types/node": "^22.13.1",
+    "@typescript-eslint/eslint-plugin": "^8.23.0",
+    "@typescript-eslint/parser": "^8.23.0",
     "ava": "^6.2.0",
     "c8": "^10.1.3",
     "eslint": "^8",
@@ -56,7 +56,7 @@
     "jsdoc-tsimport-plugin": "^1.0.5",
     "pre-commit": "^1.2.2",
     "release-it": "^18.1.2",
-    "rollup": "^4.34.0",
+    "rollup": "^4.34.1",
     "rollup-plugin-cleanup": "^3.2.1",
     "sinon": "^19.0.2",
     "typescript": "^5.7.3"
@@ -73,10 +73,6 @@
     ".": {
       "import": "./src/index.js",
       "types": "./types/index.d.ts"
-    },
-    "./audio-midi": {
-      "import": "./src/audio-midi.js",
-      "types": "./types/audio-midi.d.ts"
     }
   },
   "ava": {
@@ -103,7 +99,7 @@
     }
   },
   "scripts": {
-    "docs": "jsdoc2md --configure ./jsdoc.conf.json --private --example-lang js --template rm.hbs src/audio-midi.js > README.md; jsdoc2md --configure ./jsdoc.conf.json --private --example-lang js src/audio-midi.js > docs/audio-midi.md",
+    "docs": "jsdoc2md --configure ./jsdoc.conf.json --private --example-lang js --template rm.hbs src/index.js > README.md; jsdoc2md --configure ./jsdoc.conf.json --private --example-lang js src/index.js > docs/audio-midi.md",
     "lint": "eslint .",
     "make-demo": "rollup -c demo/rollup.config.js",
     "make-types": "tsc --module nodenext --project ./tsconfig.json",
